@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/A_Scenes/Hearth Demo.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/A_Scenes/Balloon Demo.unity
+    guid: 14c7d652ab7fe3146850b425fc56e031
+  - enabled: 1
+    path: Assets/A_Scenes/Sparkler Demo.unity
+    guid: 9ffca969ca9bd864baf3011fc1453ec9
   m_configObjects: {}
