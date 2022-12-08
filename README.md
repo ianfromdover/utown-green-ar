@@ -2,7 +2,8 @@
 A public AR installation for NUS' UTown Green.
 
 # Unity Version
-2020.3.31f1
+2021.3.14f1
+using Niantic Lightship ARDK 2.3.1
 
 # Platform
-Intending to build for WebGL to run on mobile devices
+Android, then iOS after December
