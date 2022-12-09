@@ -6,16 +6,16 @@ using Niantic.ARDK.Utilities;
 
 public class ARSessionBehaviour : MonoBehaviour
 {
-    [SerializeField] private IARCamera _camera;
+    [SerializeField] private Transform _camera;
     [SerializeField] private TextMeshProUGUI PosText;
     [SerializeField] private TextMeshProUGUI RotText;
     // Update is called once per frame
     void Update()
     {
-        var pos = _camera.Transform.ToPosition();
-        var rot = _camera.Transform.ToRotation();
+        var pos = _camera.position;
+        var rot = _camera.rotation;
 
-        PosText.text = $"{pos:F0}";
-        RotText.text = $"{rot:F0}";
+        PosText.text = $"{pos.x:F0}, {pos.y:F0}, {pos.z:F0}";
+        RotText.text = $"{rot.x:F0}, {rot.y:F0}, {rot.z:F0}";
     }
 }
