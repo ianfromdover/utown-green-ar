@@ -15,7 +15,7 @@ public class ARSessionBehaviour : MonoBehaviour
         var pos = _camera.position;
         var rot = _camera.rotation;
 
-        PosText.text = $"{pos.x:F0}, {pos.y:F0}, {pos.z:F0}";
-        RotText.text = $"{rot.x:F0}, {rot.y:F0}, {rot.z:F0}";
+        PosText.text = $"{pos.x:F2}, {pos.y:F2}, {pos.z:F2}";
+        RotText.text = $"{rot.x:F2}, {rot.y:F2}, {rot.z:F2}";
     }
 }
