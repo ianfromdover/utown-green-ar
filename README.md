@@ -1,4 +1,4 @@
-# Is This You?
+be longing
 A public AR installation for NUS' UTown Green.
 
 # Unity Version
@@ -6,4 +6,4 @@ A public AR installation for NUS' UTown Green.
 using Niantic Lightship ARDK 2.3.1
 
 # Platform
-Android, then iOS after December
+Android 12 and above.
