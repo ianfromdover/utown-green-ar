@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +8,7 @@ using UnityEngine.Events;
 /// </summary>
 public class SparklerController : MonoBehaviour
 {
+    [SerializeField] private float trailTime = 3.0f;
     public UnityEvent onSparklerLit;
     public UnityEvent onSparklerDeath;
     
@@ -49,7 +52,7 @@ public class SparklerController : MonoBehaviour
         if (_isLit)
         {
             // lerp to end
-            transform.localPosition = Vector3.SmoothDamp(transform.localPosition, 
+            sparkObj.transform.localPosition = Vector3.SmoothDamp(sparkObj.transform.localPosition, 
                 sparkEndPos.localPosition, 
                 ref _velocity,
                 positionSmoothTime / positionSpeedMultiplier);
@@ -58,7 +61,8 @@ public class SparklerController : MonoBehaviour
 
     public void LightSparkler()
     {
-        sparkObj.SetActive(true); 
+        sparkObj.SetActive(true);
+        sparkObj.transform.localPosition = sparkStartPos.localPosition;
         smokeObj.SetActive(false);
     }
 
@@ -67,10 +71,17 @@ public class SparklerController : MonoBehaviour
         sparkObj.SetActive(false); 
         smokeObj.SetActive(true);
     }
-    public void EnableTrails() { friendTrailObj.SetActive(true); }
-    public void DisableTrails() { friendTrailObj.SetActive(false); }
 
-    private void OnCollisionEnter(Collision collision)
+    public void EnableTrails() { StartCoroutine(DrawTrails()); }
+    public void DisableTrails() { friendTrailObj.SetActive(false); }
+    private IEnumerator DrawTrails()
+    {
+        friendTrailObj.SetActive(true);
+        yield return new WaitForSeconds(trailTime);
+        DisableTrails();
+    }
+
+    private void OnTriggerEnter(Collider collision)
     {
         GameObject other = collision.gameObject;
         SparklerController otherSpkController = other.GetComponent<SparklerController>();
@@ -80,6 +91,8 @@ public class SparklerController : MonoBehaviour
         // exit if the other object is not a hearth or a sparkler
         if (!(touchedSparkler || touchedHearth)) return;
 
+        if (touchedHearth) Debug.Log("touched hearth");
+            
         _isLit = true;
         transform.localPosition = sparkStartPos.localPosition;
         onSparklerLit.Invoke();
@@ -88,7 +101,9 @@ public class SparklerController : MonoBehaviour
         {
             EnableTrails(); // for this sparkler
             otherSpkController.EnableTrails();
+            Debug.Log("touched other sparkler");
         }
     }
+
     
 }
