@@ -9852,6 +9852,7 @@ MonoBehaviour:
       m_Calls: []
   sparkObj: {fileID: 6965124456407477649}
   friendTrailObj: {fileID: 6770767880230034382}
+  smokeObj: {fileID: 0}
   mainSparks: {fileID: 9049065952775796364}
   innerSparks: {fileID: 1813019076648019799}
   sparkStartPos: {fileID: 0}
