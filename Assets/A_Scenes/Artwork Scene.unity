@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.0089415265, g: 0.0028638847, b: 0.00050308014, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -659,7 +659,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1813019077690961943, guid: cfde7c79673fa08418019110392805fa, type: 3}
       propertyPath: m_Name
-      value: Sparkler (1)
+      value: smallOtherSparkler
       objectReference: {fileID: 0}
     - target: {fileID: 1813019077690961960, guid: cfde7c79673fa08418019110392805fa, type: 3}
       propertyPath: m_RootOrder
@@ -974,7 +974,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1813019077690961943, guid: cfde7c79673fa08418019110392805fa, type: 3}
       propertyPath: m_Name
-      value: Sparkler (1)
+      value: large Sparkler
       objectReference: {fileID: 0}
     - target: {fileID: 1813019077690961960, guid: cfde7c79673fa08418019110392805fa, type: 3}
       propertyPath: m_RootOrder
@@ -1156,7 +1156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &572411989
 Light:
   m_ObjectHideFlags: 0
@@ -2536,7 +2536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1887724659
 Light:
   m_ObjectHideFlags: 0
