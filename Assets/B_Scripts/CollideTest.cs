@@ -8,7 +8,7 @@ public class CollideTest : MonoBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{gameObject.name}: OnTrigger GOOD. Collided with: {other.name}");
+        Debug.Log($"{gameObject.name}: OnTriggered. Collided with: {other.name}");
     }
 
 }

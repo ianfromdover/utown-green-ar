@@ -9839,18 +9839,11 @@ MonoBehaviour:
   onSparklerLit:
     m_PersistentCalls:
       m_Calls: []
-  onSparklerDeath:
+  onSparklerDied:
     m_PersistentCalls:
       m_Calls: []
-  sparkObj: {fileID: 6965124456407477649}
-  friendTrailObj: {fileID: 0}
-  smokeObj: {fileID: 3874708778308414073}
-  mainSparks: {fileID: 9049065952775796364}
-  innerSparks: {fileID: 1813019076648019799}
-  sparkStartPos: {fileID: 0}
-  sparkEndPos: {fileID: 0}
-  positionSpeedMultiplier: 1
-  positionSmoothTime: 0.2
+  friendTrailObj: {fileID: 5943995358016480328}
+  anim: {fileID: 1903910744342359151}
 --- !u!95 &1903910744342359151
 Animator:
   serializedVersion: 4
@@ -9884,6 +9877,7 @@ GameObject:
   - component: {fileID: 1813019077804427054}
   - component: {fileID: 1363407344808736026}
   - component: {fileID: 2217072527666345839}
+  - component: {fileID: 2360029694897273484}
   m_Layer: 0
   m_Name: Sphere Bounds
   m_TagString: Untagged
@@ -9983,8 +9977,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Center: {x: 0, y: -0.000000059604645, z: -0.000000014901161}
+--- !u!114 &2360029694897273484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813019077804427052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ae9ba0855d67f46b6074699962d3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ctrlr: {fileID: 523120180391306068}
 --- !u!1 &2942378927099995470
 GameObject:
   m_ObjectHideFlags: 0
