@@ -30,7 +30,7 @@ public class SparklerController : MonoBehaviour
     public void LightSparkler()
     {
         isLit = true;
-        anim.Play("SparklerBurnout");
+        anim.Play("SparklerBurnout", -1, 0f); // play from the start
         onSparklerLit.Invoke();
     }
 
