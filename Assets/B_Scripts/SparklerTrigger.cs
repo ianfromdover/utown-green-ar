@@ -9,24 +9,22 @@ public class SparklerTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject go = other.gameObject;
-        bool hasTouchedSparkler = go.GetComponent<SparklerTrigger>() != null;
-        bool hasTouchedHearth = go.GetComponent<Hearth>() != null;
+        if (go.GetComponent<Hearth>() != null)
+        {
+            ctrlr.LightSparkler();
+            return;
+        }
         
-        // exit if the other object is not a hearth or a sparkler
-        if (!(hasTouchedHearth || hasTouchedSparkler)) return;
-            
-        ctrlr.LightSparkler();
+        SparklerTrigger spkTrig = go.GetComponent<SparklerTrigger>();
+        if (spkTrig == null || !spkTrig.IsLit()) return;
         
         // enable trails for both sparklers
-        if (hasTouchedSparkler)
-        {
-            ctrlr.EnableTrails();
-            go.GetComponent<SparklerTrigger>().EnableParentTrails();
-        }
+        ctrlr.LightSparkler();
+        ctrlr.EnableTrails();
     }
 
-    public void EnableParentTrails()
+    public bool IsLit()
     {
-        ctrlr.EnableTrails();
+        return ctrlr.isLit;
     }
 }

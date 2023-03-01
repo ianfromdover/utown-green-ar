@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,19 +18,19 @@ public class SparklerController : MonoBehaviour
     
     // for moving the sparks down the stick
     [SerializeField] private Animator anim;
+    public bool isLit { get; private set; }
 
     void Start()
     {
         onSparklerLit ??= new UnityEvent(); // if null, assign.
-        onSparklerDied ??= new UnityEvent(); 
-        onSparklerLit.AddListener(LightSparkler);
+        onSparklerDied ??= new UnityEvent();
+        isLit = true;
     }
 
     public void LightSparkler()
     {
-        anim.Play("SparklerBurnout"); // TODO: is there a play-from-start function?
-        // then i dont need a dead state
-        // this is causing stack overflow
+        isLit = true;
+        anim.Play("SparklerBurnout");
         onSparklerLit.Invoke();
     }
 
@@ -41,6 +40,7 @@ public class SparklerController : MonoBehaviour
     /// </summary>
     public void AnimatorDied()
     {
+        isLit = false;
         onSparklerDied.Invoke();
     }
     
@@ -49,7 +49,8 @@ public class SparklerController : MonoBehaviour
     /// </summary>
     public void ExtinguishSparkler()
     {
-        // anim.Play("Dead");
+        isLit = false;
+        anim.Play("Dead");
     }
 
     public void EnableTrails() { StartCoroutine(DrawTrails()); }
