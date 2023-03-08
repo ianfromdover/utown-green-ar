@@ -17,4 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/A_Scenes/ARDK IMU plane detection test.unity
     guid: e95e5c5df7b09204ab7675de15fa798b
-  m_configObjects: {}
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 29b05f89888214049b2d69a01a39db5d, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e487ce7044979384cac6319dac8e23a3, type: 2}
