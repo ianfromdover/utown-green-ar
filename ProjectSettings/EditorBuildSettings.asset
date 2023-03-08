@@ -5,18 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/A_Scenes/Hearth Demo.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/A_Scenes/Balloon Demo.unity
-    guid: 14c7d652ab7fe3146850b425fc56e031
-  - enabled: 0
-    path: Assets/A_Scenes/Sparkler Demo.unity
-    guid: 9ffca969ca9bd864baf3011fc1453ec9
   - enabled: 1
     path: Assets/A_Scenes/ARDK IMU plane detection test.unity
     guid: e95e5c5df7b09204ab7675de15fa798b
+  - enabled: 1
+    path: Assets/A_Scenes/BaseScene.unity
+    guid: e35d315b53c336d4588fc9ad1ed5ad24
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 29b05f89888214049b2d69a01a39db5d, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: e487ce7044979384cac6319dac8e23a3, type: 2}
