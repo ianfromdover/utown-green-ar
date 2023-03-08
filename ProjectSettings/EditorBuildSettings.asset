@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/A_Scenes/ARDK IMU plane detection test.unity
     guid: e95e5c5df7b09204ab7675de15fa798b
+  - enabled: 0
+    path: Assets/A_Scenes/ARDK test.unity
+    guid: 6d5bf053d85d8f244ade899172b60b40
   m_configObjects: {}
