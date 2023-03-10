@@ -16,6 +16,9 @@ public class BalloonSpawnController : MonoBehaviour
     
     [Header("References")] 
     // [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource inflate;
+    [SerializeField] private AudioSource deflate;
+    
     [Header("Events")] 
     public UnityEvent onSparklerLit;
     public UnityEvent onSparklerDied;
@@ -31,6 +34,7 @@ public class BalloonSpawnController : MonoBehaviour
         // limit the number of spawners
         if (spawners.Count >= maxSpawners)
         {
+            deflate.Play();
             Destroy(spawners.Dequeue());
         }
         
@@ -45,9 +49,11 @@ public class BalloonSpawnController : MonoBehaviour
     public void EnableBalloons()
     {
         // anim.Play("state name");
+        inflate.Play();
     }
     public void DisableBalloons()
     {
         // anim.Play("disable state name");
+        deflate.Play();
     }
 }

@@ -10,14 +10,18 @@ using UnityEngine.Events;
 /// </summary>
 public class SparklerController : MonoBehaviour
 {
+    [Header("Parameters")]
     [SerializeField] private float trailTime = 3.0f;
+    
+    [Header("References")]
+    [SerializeField] private Animator anim; // for moving the sparks down the stick
+    [SerializeField] private GameObject friendTrailObj; // a particle system that emits one long trail
+    // [SerializeField] private AudioSource trailSoundLoop; // bling sound when 'frenzy trail mode'
+    [SerializeField] private AudioSource fizzLoop;
+    
+    [Header("Events")]
     public UnityEvent onSparklerLit;
     public UnityEvent onSparklerDied;
-    
-    [SerializeField] private GameObject friendTrailObj; // a particle system that emits one long trail
-    
-    // for moving the sparks down the stick
-    [SerializeField] private Animator anim;
     public bool isLit { get; private set; }
 
     void Start()
@@ -25,11 +29,13 @@ public class SparklerController : MonoBehaviour
         onSparklerLit ??= new UnityEvent(); // if null, assign.
         onSparklerDied ??= new UnityEvent();
         isLit = true;
+        fizzLoop.Play();
     }
 
     public void LightSparkler()
     {
         isLit = true;
+        fizzLoop.Play();
         anim.Play("SparklerBurnout", -1, 0f); // play from the start
         onSparklerLit.Invoke();
     }
@@ -41,6 +47,7 @@ public class SparklerController : MonoBehaviour
     public void AnimatorDied()
     {
         isLit = false;
+        fizzLoop.Stop();
         onSparklerDied.Invoke();
     }
     
@@ -50,15 +57,26 @@ public class SparklerController : MonoBehaviour
     public void ExtinguishSparkler()
     {
         isLit = false;
+        fizzLoop.Stop();
         anim.Play("Dead");
     }
 
-    public void EnableTrails() { StartCoroutine(DrawTrails()); }
-    public void DisableTrails() { friendTrailObj.SetActive(false); }
+    public void EnableTrails()
+    {
+        // trailSoundLoop.Play();
+        StartCoroutine(DrawTrails());
+    }
+
+    public void DisableTrails()
+    {
+        // trailSoundLoop.Stop();
+        friendTrailObj.SetActive(false);
+    }
     private IEnumerator DrawTrails()
     {
         friendTrailObj.SetActive(true);
         yield return new WaitForSeconds(trailTime);
+        
         DisableTrails();
     }
 }
