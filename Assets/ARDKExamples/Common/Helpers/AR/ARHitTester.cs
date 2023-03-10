@@ -123,11 +123,12 @@ namespace Niantic.ARDKExamples.Helpers
       var anchor = result.Anchor;
       Debug.LogFormat
       (
-        "Spawning cube at {0} (anchor: {1})",
+        "Spawning {2} at {0} (anchor: {1})",
         hitPosition.ToString("F4"),
         anchor == null
           ? "none"
-          : anchor.AnchorType + " " + anchor.Identifier
+          : anchor.AnchorType + " " + anchor.Identifier,
+        PlacementObjectPf.name
       );
     }
   }

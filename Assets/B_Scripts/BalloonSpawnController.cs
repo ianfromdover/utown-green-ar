@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,15 @@ using UnityEngine.Events;
 /// </summary>
 public class BalloonSpawnController : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    [Header("Variables")] 
+    #region Limit num of spawners
+        private static int maxSpawners = 5;
+        private static Queue<GameObject> spawners = new();
+    #endregion
+    
+    [Header("References")] 
+    // [SerializeField] private Animator anim;
+    [Header("Events")] 
     public UnityEvent onSparklerLit;
     public UnityEvent onSparklerDied;
     // (balloons) start balloon fall sequence
@@ -16,8 +25,17 @@ public class BalloonSpawnController : MonoBehaviour
         // acceleration from negative rising then lerp to 9.81
         // turn on collider with detected ground planes
         // (event) once particles == 0, disable the balloon spawners
+
     private void Start()
     {
+        // limit the number of spawners
+        if (spawners.Count >= maxSpawners)
+        {
+            Destroy(spawners.Dequeue());
+        }
+        
+        // spawn
+        spawners.Enqueue(gameObject); // enqueue this
         onSparklerLit ??= new UnityEvent(); // if null, assign.
         onSparklerDied ??= new UnityEvent(); 
         onSparklerLit.AddListener(EnableBalloons);
@@ -26,10 +44,10 @@ public class BalloonSpawnController : MonoBehaviour
 
     public void EnableBalloons()
     {
-        anim.Play("state name");
+        // anim.Play("state name");
     }
     public void DisableBalloons()
     {
-        anim.Play("disable state name");
+        // anim.Play("disable state name");
     }
 }
