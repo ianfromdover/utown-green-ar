@@ -1,10 +1,7 @@
 using UnityEngine;
 using TMPro;
-using Niantic.ARDK.AR;
-using Niantic.ARDK.AR.Configuration;
-using Niantic.ARDK.Utilities;
 
-public class ARSessionBehaviour : MonoBehaviour
+public class ARSessionDebugBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform _camera;
     [SerializeField] private TextMeshProUGUI PosText;
