@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GuideScene : MonoBehaviour
 {
+    [SerializeField] private string mainMenuSceneName = "MainMenuPage";
     public void BackHome()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }

@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class HomeScreen : MonoBehaviour
 {
+    [SerializeField] private string artSceneName = "ARArtPage";
+    [SerializeField] private string guideSceneName = "GuidePage";
     public void LoadArt()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(artSceneName);
     }
 
     public void LoadGuide()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+        SceneManager.LoadScene(guideSceneName);
     }
 }
