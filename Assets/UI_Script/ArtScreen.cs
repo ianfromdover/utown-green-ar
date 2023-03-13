@@ -9,9 +9,4 @@ public class ArtScreen : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
-
-    public void LoadCamera()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1 );
-    }
 }
