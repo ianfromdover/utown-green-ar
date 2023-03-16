@@ -1,7 +1,9 @@
 # `be longing`
 
 A public AR installation for NUS' UTown Green.
+
 Read the writeup about the work on [NUS Museum's website](https://museum.nus.edu.sg/public-art-in-nus/belonging-ar/)
+
 See related works on the 2023 [NUS Art Festival Website](https://cfa.nus.edu.sg/naf2023/event/be-longing/)
 
 ## Getting Started
