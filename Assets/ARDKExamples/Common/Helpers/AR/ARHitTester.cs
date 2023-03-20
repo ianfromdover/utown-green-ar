@@ -88,11 +88,7 @@ namespace Niantic.ARDKExamples.Helpers
       var touch = PlatformAgnosticInput.GetTouch(0);
       if (touch.phase == TouchPhase.Began)
       {
-        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-        {
-          Debug.Log("UI!");
-        }
-        else 
+        if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
         {
           TouchBegan(touch);
         }
