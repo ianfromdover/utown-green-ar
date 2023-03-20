@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +7,8 @@ public class CaptureScenePhoto : MonoBehaviour
 {
 
     public Button screenshotButton;
-    [SerializeField] private float savedMsgDisplayTime = 3.0f;
-    [SerializeField] private GameObject ssAlertUI;
+    public Animator shotAnim;
+    public Animator savedNotifAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -41,16 +40,14 @@ public class CaptureScenePhoto : MonoBehaviour
         File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
         Destroy(ss);
+        shotAnim.Play("ScreenshotBlackout", 0, 0f);
 
         // Wait for one second to allow time for the screenshot to be saved
         yield return new WaitForSeconds(1);
 
         // Tell user that the screenshot has been saved
-        // TODO: to replace with animator that changes opacity
-        Debug.Log("Screenshot saved to: " + filePath);
-        ssAlertUI.SetActive(true);
-        yield return new WaitForSeconds(savedMsgDisplayTime);
-        ssAlertUI.SetActive(false);
+        // replace.
+        savedNotifAnim.Play("SavedNotifAnim", 0, 0f);
     }
 
     private string GetAndroidExternalStoragePath()

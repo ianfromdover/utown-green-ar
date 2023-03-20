@@ -25,6 +25,10 @@ namespace Niantic.ARDK.Extensions
     /// The object to spawn and update when a plane is detected.
     [SerializeField]
     private GameObject _planePrefab;
+    
+    // Notification to show when planes are found
+    [SerializeField]
+    private Animator _notifAnimator;
 
     [SerializeField]
     [EnumFlag]
@@ -156,6 +160,9 @@ namespace Niantic.ARDK.Extensions
       var plane = Instantiate(_planePrefab);
       plane.name = "Plane-" + anchor.Identifier.ToString().Substring(0, 5);
       _planeLookup.Add(anchor.Identifier, plane);
+      
+      // Notify viewer that planes have been found
+      _notifAnimator.SetTrigger("FoundPlanes");
     }
 
     private void OnAnchorsUpdated(AnchorsArgs args)
