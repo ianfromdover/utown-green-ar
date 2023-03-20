@@ -21,6 +21,7 @@ namespace Niantic.ARDK.Extensions
   public sealed class ARPlaneManager:
     ARSessionListener
   {
+    private bool _isOn = true;
     /// The object to spawn and update when a plane is detected.
     [SerializeField]
     private GameObject _planePrefab;
@@ -54,6 +55,16 @@ namespace Niantic.ARDK.Extensions
           RaiseConfigurationChanged();
         }
       }
+    }
+
+    /// <summary>
+    /// Toggles the active status of all the planes.
+    /// </summary>
+    public void TogglePlanesOnOff()
+    {
+      foreach (var plane in _planeLookup) plane.Value.SetActive(!_isOn);
+      _isOn = !_isOn;
+      // do i have to refresh anchors?
     }
 
     protected override void DeinitializeImpl()

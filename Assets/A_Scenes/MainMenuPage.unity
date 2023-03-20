@@ -933,7 +933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Be Longing
+  m_text: Be longing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12ef1e222d22668498354a566040526b, type: 2}
   m_sharedMaterial: {fileID: -3163476717793013799, guid: 12ef1e222d22668498354a566040526b, type: 2}
