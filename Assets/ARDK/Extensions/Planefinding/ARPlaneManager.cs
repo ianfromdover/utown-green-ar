@@ -30,6 +30,10 @@ namespace Niantic.ARDK.Extensions
     [SerializeField]
     private Animator _notifAnimator;
 
+    // Notification to show when planes are found
+    [SerializeField]
+    private AudioSource _notifSound;
+    
     [SerializeField]
     [EnumFlag]
     private PlaneDetection _detectedPlaneTypes;
@@ -163,6 +167,7 @@ namespace Niantic.ARDK.Extensions
       
       // Notify viewer that planes have been found
       _notifAnimator.SetTrigger("FoundPlanes");
+      _notifSound.Play();
     }
 
     private void OnAnchorsUpdated(AnchorsArgs args)

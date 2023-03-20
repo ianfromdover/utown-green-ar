@@ -9,6 +9,7 @@ public class CaptureScenePhoto : MonoBehaviour
     public Button screenshotButton;
     public Animator shotAnim;
     public Animator savedNotifAnim;
+    public AudioSource camSound;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class CaptureScenePhoto : MonoBehaviour
         File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
         Destroy(ss);
+        camSound.Play();
         shotAnim.Play("ScreenshotBlackout", 0, 0f);
 
         // Wait for one second to allow time for the screenshot to be saved
