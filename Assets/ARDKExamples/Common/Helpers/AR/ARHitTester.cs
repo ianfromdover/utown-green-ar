@@ -10,9 +10,12 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Niantic.ARDKExamples.Helpers
 {
+  
+
   //! A helper class that demonstrates hit tests based on user input
   /// <summary>
   /// A sample class that can be added to a scene and takes user input in the form of a screen touch.
@@ -30,8 +33,6 @@ namespace Niantic.ARDKExamples.Helpers
 
     /// The object we will place when we get a valid hit test result!
     public GameObject PlacementObjectPf;
-
-    public AudioSource inflate;
 
     /// A list of placed game objects to be destroyed in the OnDestroy method.
     private List<GameObject> _placedObjects = new List<GameObject>();
@@ -89,7 +90,10 @@ namespace Niantic.ARDKExamples.Helpers
       var touch = PlatformAgnosticInput.GetTouch(0);
       if (touch.phase == TouchPhase.Began)
       {
-        TouchBegan(touch);
+        if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        {
+          TouchBegan(touch);
+        }
       }
     }
 
@@ -121,7 +125,6 @@ namespace Niantic.ARDKExamples.Helpers
       var hitPosition = result.WorldTransform.ToPosition();
 
       _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
-      inflate.Play(); // sound
       
       // debug
       var anchor = result.Anchor;

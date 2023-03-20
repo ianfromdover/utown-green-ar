@@ -21,10 +21,19 @@ namespace Niantic.ARDK.Extensions
   public sealed class ARPlaneManager:
     ARSessionListener
   {
+    private bool _isOn = true;
     /// The object to spawn and update when a plane is detected.
     [SerializeField]
     private GameObject _planePrefab;
+    
+    // Notification to show when planes are found
+    [SerializeField]
+    private Animator _notifAnimator;
 
+    // Notification to show when planes are found
+    [SerializeField]
+    private AudioSource _notifSound;
+    
     [SerializeField]
     [EnumFlag]
     private PlaneDetection _detectedPlaneTypes;
@@ -54,6 +63,15 @@ namespace Niantic.ARDK.Extensions
           RaiseConfigurationChanged();
         }
       }
+    }
+
+    /// <summary>
+    /// Toggles the active status of all the planes.
+    /// </summary>
+    public void TogglePlanesOnOff()
+    {
+      foreach (var plane in _planeLookup) plane.Value.SetActive(!_isOn);
+      _isOn = !_isOn;
     }
 
     protected override void DeinitializeImpl()
@@ -146,6 +164,10 @@ namespace Niantic.ARDK.Extensions
       var plane = Instantiate(_planePrefab);
       plane.name = "Plane-" + anchor.Identifier.ToString().Substring(0, 5);
       _planeLookup.Add(anchor.Identifier, plane);
+      
+      // Notify viewer that planes have been found
+      _notifAnimator.SetTrigger("FoundPlanes");
+      _notifSound.Play();
     }
 
     private void OnAnchorsUpdated(AnchorsArgs args)
