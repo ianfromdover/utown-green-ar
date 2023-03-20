@@ -10,6 +10,7 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Niantic.ARDKExamples.Helpers
 {
@@ -89,7 +90,14 @@ namespace Niantic.ARDKExamples.Helpers
       var touch = PlatformAgnosticInput.GetTouch(0);
       if (touch.phase == TouchPhase.Began)
       {
-        TouchBegan(touch);
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+        {
+          Debug.Log("UI!");
+        }
+        else 
+        {
+          TouchBegan(touch);
+        }
       }
     }
 
