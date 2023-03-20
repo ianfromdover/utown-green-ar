@@ -32,8 +32,6 @@ namespace Niantic.ARDKExamples.Helpers
     /// The object we will place when we get a valid hit test result!
     public GameObject PlacementObjectPf;
 
-    public AudioSource inflate;
-
     /// A list of placed game objects to be destroyed in the OnDestroy method.
     private List<GameObject> _placedObjects = new List<GameObject>();
 
@@ -129,7 +127,6 @@ namespace Niantic.ARDKExamples.Helpers
       var hitPosition = result.WorldTransform.ToPosition();
 
       _placedObjects.Add(Instantiate(PlacementObjectPf, hitPosition, Quaternion.identity));
-      inflate.Play(); // sound
       
       // debug
       var anchor = result.Anchor;
