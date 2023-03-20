@@ -28,6 +28,16 @@ namespace Niantic.ARDKExamples.Helpers
     private GameObject _spawnedCursorObject;
 
     private IARSession _session;
+    
+    private bool _isOn = true;
+    /// <summary>
+    /// Toggles the active status of the cursor
+    /// </summary>
+    public void ToggleCursorOnOff()
+    {
+      if (_spawnedCursorObject) _spawnedCursorObject.SetActive(!_isOn);
+      _isOn = !_isOn;
+    }
 
     private void Start()
     {
@@ -73,9 +83,9 @@ namespace Niantic.ARDKExamples.Helpers
 
     private void _FrameUpdated(FrameUpdatedArgs args)
     {
+      if (!_isOn) return;
       var camera = Camera;
-      if (camera == null)
-        return;
+      if (camera == null) return;
 
       var viewportWidth = camera.pixelWidth;
       var viewportHeight = camera.pixelHeight;

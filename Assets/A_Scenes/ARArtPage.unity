@@ -968,6 +968,11 @@ MonoBehaviour:
   shotAnim: {fileID: 1865462996}
   savedNotifAnim: {fileID: 1660666559}
   camSound: {fileID: 847331847}
+  uiToHide:
+  - {fileID: 384355523}
+  - {fileID: 1984195553}
+  - {fileID: 1426829763}
+  - {fileID: 651682356}
 --- !u!82 &847331847
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1989,6 +1994,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1946785651}
+        m_TargetAssemblyTypeName: Niantic.ARDKExamples.Helpers.ARCursorRenderer,
+          ARDK-Examples
+        m_MethodName: ToggleCursorOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1437610241}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -2173,6 +2191,19 @@ MonoBehaviour:
       - m_Target: {fileID: 1859652134}
         m_TargetAssemblyTypeName: Niantic.ARDK.Extensions.ARPlaneManager, ARDK
         m_MethodName: TogglePlanesOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1946785651}
+        m_TargetAssemblyTypeName: Niantic.ARDKExamples.Helpers.ARCursorRenderer,
+          ARDK-Examples
+        m_MethodName: ToggleCursorOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

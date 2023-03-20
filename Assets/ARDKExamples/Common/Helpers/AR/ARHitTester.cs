@@ -14,6 +14,8 @@ using UnityEngine.EventSystems;
 
 namespace Niantic.ARDKExamples.Helpers
 {
+  
+
   //! A helper class that demonstrates hit tests based on user input
   /// <summary>
   /// A sample class that can be added to a scene and takes user input in the form of a screen touch.
