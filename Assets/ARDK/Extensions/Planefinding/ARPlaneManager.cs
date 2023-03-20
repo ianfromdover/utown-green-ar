@@ -64,7 +64,6 @@ namespace Niantic.ARDK.Extensions
     {
       foreach (var plane in _planeLookup) plane.Value.SetActive(!_isOn);
       _isOn = !_isOn;
-      // do i have to refresh anchors?
     }
 
     protected override void DeinitializeImpl()
