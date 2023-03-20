@@ -47,4 +47,8 @@ Freesound:
 - Balloon [inflation sound](https://freesound.org/people/Terhen/sounds/234211/) by Terhen
 - Balloon [deflation sound](https://freesound.org/people/qubodup/sounds/221508/) by qubodup
 - [Sparkler sound](https://freesound.org/people/16FThumaF/sounds/499025/) by 16ThumaF
+- [Camera sound](https://freesound.org/people/jdaniel1999/sounds/376205/) by jdaniel1999
+
+Kenney:
+- [Interface sounds(drop002, drop003)](https://www.kenney.nl/assets/interface-sounds)
 
