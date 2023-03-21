@@ -167,7 +167,15 @@ namespace Niantic.ARDK.Extensions
       
       // Notify viewer that planes have been found
       _notifAnimator.SetTrigger("FoundPlanes");
-      _notifSound.Play();
+      
+      if (_isOn) // viewer is in photo mode
+      {
+        _notifSound.Play();
+      }
+      else
+      {
+        plane.SetActive(false);
+      }
     }
 
     private void OnAnchorsUpdated(AnchorsArgs args)

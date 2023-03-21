@@ -26,11 +26,12 @@ public class CaptureScenePhoto : MonoBehaviour
 
     private IEnumerator TakeScreenshot()
     {
-        uiToHide.ForEach(go => go.SetActive(false));
+        // uiToHide.ForEach(go => go.SetActive(false));
 
         // Wait for the end of the current frame before capturing the screenshot
         yield return new WaitForEndOfFrame();
 
+        uiToHide.ForEach(go => go.SetActive(false));
         string timeStamp = System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss");
         yield return new WaitForEndOfFrame();
 
